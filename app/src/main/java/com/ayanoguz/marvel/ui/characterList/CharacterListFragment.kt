@@ -19,7 +19,7 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class CharacterListFragment :
     BaseFragment<CharacterListViewModel, FragmentCharacterListBinding>(CharacterListViewModel::class.java) {
-    lateinit var connectionUtil : ConnectionUtil
+    lateinit var connectionUtil: ConnectionUtil
 
     override fun onInit() {
         connectionUtil = ConnectionUtil.getInstance(requireContext())
@@ -80,8 +80,8 @@ class CharacterListFragment :
         binding?.viewModel?.liveCharacterResult?.observeWith(viewLifecycleOwner)
         {
             lifecycleScope.launch {
-            adapter.submitData(it)
-            binding?.viewModel?.progressLiveData?.postValue(false)
+                adapter.submitData(it)
+                binding?.viewModel?.progressLiveData?.postValue(false)
             }
         }
     }
