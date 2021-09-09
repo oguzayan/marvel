@@ -35,7 +35,7 @@ class ConnectionUtil private constructor(context: Context) : LiveData<Boolean>()
         super.onActive()
 
         if (latestState != null)
-            postValue(latestState)
+            postValue(latestState ?: false)
         else
             updateConnection()
 
